@@ -41,52 +41,32 @@ public class Pain extends Application {
         Rectangle rectangle1 = new Rectangle(0, 0, 960, 1080);
         rectangle1.setFill(Color.WHITE);
 
-        Rectangle fondMaison = new Rectangle(0, 0, 300, 200);
-        fondMaison.setFill(Color.BEIGE);
+        Maison maison = new Maison();
+        Maison maison2 =new Maison();
+        Etoile etoile1 =new Etoile();
+        Etoile etoile2 =new Etoile();
+        Etoile etoile3 =new Etoile();
+        Etoile etoile4 =new Etoile();
 
-        Rectangle fenetre = new Rectangle(200, 95, 60, 30);
-        fenetre.setFill(Color.AQUA);
-        fenetre.setStroke(Color.DARKGRAY);
-        fenetre.setStrokeWidth(5 / 2);
-
-        Line barreauFenetreHor = new Line(200, 110, 260, 110);
-        barreauFenetreHor.setStroke(Color.DARKGREY);
-        barreauFenetreHor.setStrokeWidth(5 / 2);
-
-        Line barreauFenetreVer = new Line(230, 95, 230, 125);
-        barreauFenetreVer.setStroke(Color.DARKGRAY);
-        barreauFenetreVer.setStrokeWidth(5 / 2);
-
-        Group groupeFenetre = new Group(fenetre, barreauFenetreHor, barreauFenetreVer);
-        groupeFenetre.setScaleX(2);
-        groupeFenetre.setScaleY(2);
-        groupeFenetre.setTranslateX(-25);
-
-        Rectangle porte = new Rectangle(40, 110, 50, 90);
-        porte.setFill(Color.BROWN);
-
-        Circle poignePorte = new Circle(10);
-        poignePorte.setTranslateX(75);
-        poignePorte.setTranslateY(155);
-        poignePorte.setFill(Color.GREEN);
-
-        Polygon triangle = new Polygon(-15, 0, 150, -165, 315, 0);
-        triangle.setFill(Color.RED);
-
-        Group maison = new Group(fondMaison, groupeFenetre, porte, poignePorte, triangle);
-        maison.setTranslateX(350);
-        maison.setTranslateY(500);
-
-        DropShadow ombrage = new DropShadow(20, -40, 40, Color.BLACK);
+        DropShadow ombrage = new DropShadow(20, -40, 40, Color.LIGHTGREY);
         maison.setEffect(ombrage);
-        Group maison2 = new Group(maison.getChildren());
+        maison2.setTranslateX(950);
+
+        etoile1.setTranslateY(100);
+        etoile1.setTranslateX(1700);
+        etoile2.setTranslateY(150);
+        etoile2.setTranslateX(1300);
+        etoile3.setTranslateY(200);
+        etoile3.setTranslateX(1500);
+        etoile4.setTranslateY(150);
+        etoile4.setTranslateX(1410);
 
 
-        Group group = new Group(rectangle, text2, text1, maison, maison2);
+        Group group = new Group(rectangle, text2, text1, maison,maison2,etoile1,etoile2,etoile3,etoile4);
         primaryStage.setScene(new Scene(group));
         primaryStage.show();
     }
 }
 
 
-    
+
