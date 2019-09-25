@@ -3,6 +3,9 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.LinearGradient;
+import javafx.scene.paint.Stop;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
@@ -43,26 +46,42 @@ public class Pain extends Application {
 
         Maison maison = new Maison();
         Maison maison2 =new Maison();
-        Etoile etoile1 =new Etoile();
-        Etoile etoile2 =new Etoile();
-        Etoile etoile3 =new Etoile();
-        Etoile etoile4 =new Etoile();
+        Etoile etoile1 =new Etoile(1);
+        Etoile etoile2 =new Etoile(3);
+        Etoile etoile3 =new Etoile(2.5);
+        Etoile etoile4 =new Etoile(1.75);
 
         DropShadow ombrage = new DropShadow(20, -40, 40, Color.LIGHTGREY);
         maison.setEffect(ombrage);
         maison2.setTranslateX(950);
 
-        etoile1.setTranslateY(100);
-        etoile1.setTranslateX(1700);
-        etoile2.setTranslateY(150);
-        etoile2.setTranslateX(1300);
-        etoile3.setTranslateY(200);
-        etoile3.setTranslateX(1500);
-        etoile4.setTranslateY(150);
-        etoile4.setTranslateX(1410);
+        etoile1.setTranslateY(50);
+        etoile1.setTranslateX(1000);
+        etoile1.setScaleX(0.5);
+        etoile1.setScaleY(0.5);
+        etoile2.setTranslateY(250);
+        etoile2.setTranslateX(1150);
+        etoile2.setScaleX(0.35);
+        etoile2.setScaleY(0.35);
+        etoile3.setTranslateY(150);
+        etoile3.setTranslateX(1300);
+        etoile3.setScaleX(0.4);
+        etoile3.setScaleY(0.4);
+        etoile4.setTranslateY(200);
+        etoile4.setTranslateX(1510);
+        etoile4.setScaleX(0.6);
+        etoile4.setScaleY(0.6);
+
+        Circle lune=new Circle(60);
+        Stop[] stops=new Stop[]{new Stop(0,Color.LIGHTGREY),new Stop(1,Color.BLACK)};
+        LinearGradient dégradé=new LinearGradient(0,0,1,1,true,CycleMethod.NO_CYCLE,stops);
+        lune.setFill(dégradé);
+        lune.setTranslateY(200);
+        lune.setTranslateX(1700);
 
 
-        Group group = new Group(rectangle, text2, text1, maison,maison2,etoile1,etoile2,etoile3,etoile4);
+
+        Group group = new Group(rectangle, text2, text1, maison,maison2,etoile1,etoile2,etoile3,etoile4,lune);
         primaryStage.setScene(new Scene(group));
         primaryStage.show();
     }
