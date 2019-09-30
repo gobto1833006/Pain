@@ -1,3 +1,4 @@
+
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -6,12 +7,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Polygon;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 
 public class Pain extends Application {
 
@@ -46,14 +45,16 @@ public class Pain extends Application {
 
         Maison maison = new Maison();
         Maison maison2 =new Maison();
+        DropShadow ombrage = new DropShadow(20, -40, 40, Color.LIGHTGREY);
+        maison.setEffect(ombrage);
+        maison2.setTranslateX(950);
+
+
+
         Etoile etoile1 =new Etoile(1);
         Etoile etoile2 =new Etoile(3);
         Etoile etoile3 =new Etoile(2.5);
         Etoile etoile4 =new Etoile(1.75);
-
-        DropShadow ombrage = new DropShadow(20, -40, 40, Color.LIGHTGREY);
-        maison.setEffect(ombrage);
-        maison2.setTranslateX(950);
 
         etoile1.setTranslateY(50);
         etoile1.setTranslateX(1000);
@@ -72,16 +73,31 @@ public class Pain extends Application {
         etoile4.setScaleX(0.6);
         etoile4.setScaleY(0.6);
 
+
         Circle lune=new Circle(60);
         Stop[] stops=new Stop[]{new Stop(0,Color.LIGHTGREY),new Stop(1,Color.BLACK)};
         LinearGradient dégradé=new LinearGradient(0,0,1,1,true,CycleMethod.NO_CYCLE,stops);
         lune.setFill(dégradé);
         lune.setTranslateY(200);
-        lune.setTranslateX(1700);
+        lune.setTranslateX(1710);
+
+
+        Soleil soleil =new Soleil();
+        soleil.setTranslateX(750);
+        soleil.setTranslateY(200);
+
+
+       Oiseau oiseau1 =new Oiseau();
+       Oiseau oiseau2 =new Oiseau();
+       oiseau1.setTranslateY(200);
+       oiseau2.setTranslateX(300);
+       oiseau2.setTranslateY(100);
 
 
 
-        Group group = new Group(rectangle, text2, text1, maison,maison2,etoile1,etoile2,etoile3,etoile4,lune);
+
+
+        Group group = new Group(rectangle, text2, text1, maison,maison2,etoile1,etoile2,etoile3,etoile4,lune,soleil,oiseau1,oiseau2);
         primaryStage.setScene(new Scene(group));
         primaryStage.show();
     }
